@@ -16,9 +16,9 @@ def checkout(skus):
     counters = Counter(skus)
     for key, val in counters.items():
         if key in product:
-            if val >= product['bonus']:
-                div = int(val / product['bonus'])
-                rem = val % product['bonus']
+            if val >= product[key]['bonus']:
+                div = int(val / product[key]['bonus'])
+                rem = val % product[key]['bonus']
                 total += (product[key]['amount'] * div) + (product[key]['1'] * rem)
 
             else:
@@ -28,6 +28,7 @@ def checkout(skus):
             return -1
 
     return total
+
 
 
 
