@@ -10,8 +10,6 @@ def checkout(skus):
         'B': {-1: 30, 2:45},
         'C': {-1: 20},
         'D': {-1: 15},
-
-
     }
 
     total = 0
@@ -19,7 +17,7 @@ def checkout(skus):
     for key, val in counters.items():
         if key.upper() in product:
             if val in product[key.upper()]:
-                total += product[key.upper()]
+                total += product[key.upper()][val]
 
             else:
                 total += val * product[key.upper()][-1]
@@ -28,6 +26,7 @@ def checkout(skus):
             return -1
 
     return total
+
 
 
 
