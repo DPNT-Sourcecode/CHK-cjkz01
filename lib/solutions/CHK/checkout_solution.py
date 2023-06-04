@@ -53,7 +53,7 @@ def checkout(skus):
     group = True
 
     while(group):
-        result, group = get_comb(skus)
+        group, result = get_comb(skus)
         total += 45
         counters = counters - Counter(result)
 
@@ -89,6 +89,7 @@ def checkout(skus):
 
 
     return total
+
 
 
 
