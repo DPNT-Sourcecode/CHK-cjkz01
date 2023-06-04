@@ -3,7 +3,7 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 from collections import Counter
-from itertools import Combination
+from itertools import combinations
 
 
 
@@ -46,7 +46,7 @@ def checkout(skus):
     counters = Counter(skus)
 
 
-    for comb in Combination("STXYZ", 3):
+    for comb in combinations("STXYZ", 3):
         print(comb)
 
 
@@ -82,6 +82,7 @@ def checkout(skus):
 
 
     return total
+
 
 
 
