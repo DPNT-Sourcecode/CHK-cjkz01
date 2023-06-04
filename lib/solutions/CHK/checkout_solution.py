@@ -34,30 +34,26 @@ def checkout(skus):
                     counters[product[key][bonus]] -= min(div, counters[product[key][bonus]])
 
     for key, val in counters.items():
-        if key in product:
-
-            if 'bonus' in product[key]:
-                rem = 0
-                for bonus in product[key]['bonus']:
-                    div = int(val / bonus)
-                    total += (product[key][bonus] * div)
-                    rem = val % bonus
-                    val = rem
-                total += (product[key][-1] * rem)
-
-            else:
-                total += val * product[key][-1]
-
-            # if 'free_bonus' in product[key]:
-            #     for bonus in product[key]['free_bonus']:
-            #         div = int(val / bonus)
-            #         if product[key][bonus] in counters:
-            #             total -= product[product[key][bonus]].get( div , product[product[key][bonus]][-1] * div)
-
-
+        if 'bonus' in product[key]:
+            rem = 0
+            for bonus in product[key]['bonus']:
+                div = int(val / bonus)
+                total += (product[key][bonus] * div)
+                rem = val % bonus
+                val = rem
+            total += (product[key][-1] * rem)
 
         else:
-            return -1
+            total += val * product[key][-1]
+
+        # if 'free_bonus' in product[key]:
+        #     for bonus in product[key]['free_bonus']:
+        #         div = int(val / bonus)
+        #         if product[key][bonus] in counters:
+        #             total -= product[product[key][bonus]].get( div , product[product[key][bonus]][-1] * div)
+
+
+
 
     return total
 
