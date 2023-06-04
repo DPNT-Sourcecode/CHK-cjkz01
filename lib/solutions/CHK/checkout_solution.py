@@ -50,12 +50,18 @@ def checkout(skus):
 
     total = 0
     counters = Counter(skus)
-    group = True
+    group = Counter("STXYZ")
+    group_count = 0
 
-    while(group):
-        group, result = get_comb(skus)
-        total += 45
-        counters = counters - Counter(result)
+    while()
+        for k in group:
+            if k in counters:
+                group_count += 1
+            if group_count == 3:
+                counters = counters
+
+
+
 
 
     for key, val in counters.items():
@@ -89,6 +95,7 @@ def checkout(skus):
 
 
     return total
+
 
 
 
