@@ -3,6 +3,10 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 from collections import Counter
+
+
+
+
 def checkout(skus):
     # raise NotImplementedError()
     product = {
@@ -12,6 +16,8 @@ def checkout(skus):
         'D': {-1: 15},
         'E': {-1: 40, 2:'B', 'free_bonus': [2]},
     }
+
+
 
     total = 0
     counters = Counter(skus)
@@ -34,13 +40,15 @@ def checkout(skus):
                 for bonus in product[key]['free_bonus']:
                     div = int(val / bonus)
                     if product[key][bonus] in counters:
-                        total -= (product[product[key][bonus]][-1] * div)
+                        total -= product.get( product[key][bonus][div] , product[product[key][bonus]][-1] * div)
+
 
 
         else:
             return -1
 
     return total
+
 
 
 
