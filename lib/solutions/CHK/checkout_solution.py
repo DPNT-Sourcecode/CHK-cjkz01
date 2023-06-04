@@ -21,7 +21,7 @@ def checkout(skus):
         'H': {-1: 10, 5:45,10: 80, 'bonus': [10, 5]},
         'I': {-1: 35},
         'J': {-1: 60},
-        'K': {-1: 80, 2:150, 'bonus': [2]},
+        'K': {-1: 70, 2:120, 'bonus': [2]},
         'L': {-1: 90},
         'M': {-1: 15},
         'N': {-1: 40, 3:'M', 'free_bonus': [3]},
@@ -45,22 +45,10 @@ def checkout(skus):
     total = 0
     counters = Counter(skus)
 
-
     for comb in combinations("STXYZ", 3):
         if  set(comb) <= set(skus):
+            total += 45
             counters = counters - Counter(set(comb))
-
-
-    print(counters)
-
-
-
-        # if comb in tuple(skus):
-        #     print(True, ''.join(comb), skus )
-        # else:
-        #     print(False, ''.join(comb), skus)
-
-
 
 
     for key, val in counters.items():
@@ -96,9 +84,6 @@ def checkout(skus):
     return total
 
 
-
-
-checkout("VTXS")
 
 
 
