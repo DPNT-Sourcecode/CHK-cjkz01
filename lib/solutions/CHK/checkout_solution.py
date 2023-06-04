@@ -41,12 +41,11 @@ def checkout(skus):
 
     total = 0
     counters = Counter(skus)
-    group = Counter("STXYZ")
     success = True
 
     while(success):
         output = []
-        for k in group:
+        for k in ['Z', 'T', 'S', 'Y', 'X']:
             if k in counters:
                 output += [k] * min(counters[k], 3 - len(output))
             if len(output) == 3:
@@ -90,3 +89,4 @@ def checkout(skus):
             total += val * product[key][-1]
 
     return total
+
