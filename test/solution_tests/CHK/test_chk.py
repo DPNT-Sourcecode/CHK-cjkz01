@@ -32,4 +32,11 @@ class TestSum():
     def test_six(self):
         assert checkout_solution.checkout("UUU") == 120
 
+    def test_seven(self):
+        assert checkout_solution.checkout("STXSTX") == 90
+        assert checkout_solution.checkout("SSS") == 45
+        assert checkout_solution.checkout("SSSZ") == 65
+
+
+
 
