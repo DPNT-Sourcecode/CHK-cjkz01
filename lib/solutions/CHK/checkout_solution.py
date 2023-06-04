@@ -1,5 +1,4 @@
 
-
 # noinspection PyUnusedLocal
 # skus = unicode string
 from collections import Counter
@@ -7,30 +6,24 @@ from itertools import combinations
 
 
 
-def get_comb(skus):
-    for comb in combinations("STXYZ", 3):
-        if set(comb) <= set(skus):
-            return (True, comb)
-    return (False, None)
-
 
 def checkout(skus):
     # raise NotImplementedError()
     product = {
-        'A': {-1: 50, 3:130,5: 200, 'bonus': [5, 3]},
-        'B': {-1: 30, 2:45, 'bonus': [2]},
+        'A': {-1: 50, 3 :130 ,5: 200, 'bonus': [5, 3]},
+        'B': {-1: 30, 2 :45, 'bonus': [2]},
         'C': {-1: 20},
         'D': {-1: 15},
-        'E': {-1: 40, 2:'B', 'free_bonus': [2]},
-        'F': {-1: 10, 2:'F', 'free_bonus': [2]},
+        'E': {-1: 40, 2 :'B', 'free_bonus': [2]},
+        'F': {-1: 10, 2 :'F', 'free_bonus': [2]},
         'G': {-1: 20},
-        'H': {-1: 10, 5:45,10: 80, 'bonus': [10, 5]},
+        'H': {-1: 10, 5 :45 ,10: 80, 'bonus': [10, 5]},
         'I': {-1: 35},
         'J': {-1: 60},
-        'K': {-1: 70, 2:120, 'bonus': [2]},
+        'K': {-1: 70, 2 :120, 'bonus': [2]},
         'L': {-1: 90},
         'M': {-1: 15},
-        'N': {-1: 40, 3:'M', 'free_bonus': [3]},
+        'N': {-1: 40, 3 :'M', 'free_bonus': [3]},
         'O': {-1: 10},
         'P': {-1: 50, 5: 200, 'bonus': [5]},
         'Q': {-1: 30, 3: 80, 'bonus': [3]},
@@ -38,7 +31,7 @@ def checkout(skus):
         'S': {-1: 20},
         'T': {-1: 20},
         'U': {-1: 40, 3: 'U', 'free_bonus': [3]},
-        'V': {-1: 50, 2: 90, 3:130 ,'bonus': [3,2]},
+        'V': {-1: 50, 2: 90, 3 :130 ,'bonus': [3, 2]},
         'W': {-1: 20},
         'X': {-1: 17},
         'Y': {-1: 20},
@@ -46,23 +39,20 @@ def checkout(skus):
 
     }
 
-
-
     total = 0
     counters = Counter(skus)
     group = Counter("STXYZ")
-    group_count = 0
+    output = []
 
-    while()
+    while(len(output) == 0):
         for k in group:
             if k in counters:
-                group_count += 1
-            if group_count == 3:
-                counters = counters
-
-
-
-
+                output.append(k)
+            if len(output) == 3:
+                counters = counters - Counter(output)
+                total += 45
+                output = []
+                break
 
     for key, val in counters.items():
         if key not in product:
@@ -93,9 +83,7 @@ def checkout(skus):
         else:
             total += val * product[key][-1]
 
-
     return total
-
 
 
 
