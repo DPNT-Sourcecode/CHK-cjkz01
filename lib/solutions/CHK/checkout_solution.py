@@ -84,8 +84,3 @@ def checkout(skus):
             total += val * product[key][-1]
 
     return total
-
-
-
-
-
