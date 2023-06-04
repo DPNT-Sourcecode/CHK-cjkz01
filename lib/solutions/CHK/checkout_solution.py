@@ -30,13 +30,16 @@ def checkout(skus):
             else:
                 total += val * product[key][-1]
 
-            # for bonus in product[key]['free_bonus']:
-            #     total -= product[product[key][bonus]][-1]
+            if 'free_bonus' in product[key]:
+                for bonus in product[key]['free_bonus']:
+                    if product[key][bonus] in counters:
+                        total -= product[product[key][bonus]][-1]
 
         else:
             return -1
 
     return total
+
 
 
 
