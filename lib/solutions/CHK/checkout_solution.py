@@ -44,12 +44,16 @@ def checkout(skus):
 
     total = 0
     counters = Counter(skus)
+    group = True
 
-    for comb in combinations("STXYZ", 3):
-        if  set(comb) <= set(skus):
-            total += 45
-            counters = counters - Counter(set(comb))
+    while(group):
+        for comb in combinations("STXYZ", 3):
+            if  set(comb) <= set(skus):
+                total += 45
+                counters = counters - Counter(set(comb))
+                break
 
+            group = False
 
     for key, val in counters.items():
         if key not in product:
@@ -82,5 +86,6 @@ def checkout(skus):
 
 
     return total
+
 
 
