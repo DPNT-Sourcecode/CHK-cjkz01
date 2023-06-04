@@ -7,6 +7,12 @@ from itertools import combinations
 
 
 
+def get_comb(skus):
+    for comb in combinations("STXYZ", 3):
+        if set(comb) <= set(skus):
+            return (True, comb)
+    return (False, None)
+
 
 def checkout(skus):
     # raise NotImplementedError()
@@ -47,13 +53,10 @@ def checkout(skus):
     group = True
 
     while(group):
-        for comb in combinations("STXYZ", 3):
-            if  set(comb) <= set(skus):
-                total += 45
-                counters = counters - Counter(set(comb))
-                break
+        result, group = get_comb(skus)
+        total += 45
+        counters = counters - Counter(result)
 
-            group = False
 
     for key, val in counters.items():
         if key not in product:
@@ -86,6 +89,7 @@ def checkout(skus):
 
 
     return total
+
 
 
 
