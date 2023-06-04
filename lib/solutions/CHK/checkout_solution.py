@@ -47,7 +47,7 @@ def checkout(skus):
 
 
     for comb in combinations("STXYZ", 3):
-        if ''.join(comb) in skus:
+        if comb in tuple(skus):
             print(True, ''.join(comb), skus )
         else:
             print(False, ''.join(comb), skus)
@@ -91,3 +91,4 @@ def checkout(skus):
 
 
 checkout("VTXS")
+
