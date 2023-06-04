@@ -17,6 +17,8 @@ class TestSum():
         assert checkout_solution.checkout("BBB") == 75
         assert checkout_solution.checkout("BBBB") == 90
 
-    #
-    # def test_three(self):
-    #     assert sum_solution.compute(2, 3) > 3
+
+    def test_four(self):
+        assert checkout_solution.checkout("ABCDEABCDE") == 280
+        assert checkout_solution.checkout("CCADDEEBBA") == 280
+
