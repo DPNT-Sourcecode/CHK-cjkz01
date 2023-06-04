@@ -3,6 +3,7 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 from collections import Counter
+from itertools import Combination
 
 
 
@@ -28,14 +29,14 @@ def checkout(skus):
         'P': {-1: 50, 5: 200, 'bonus': [5]},
         'Q': {-1: 30, 3: 80, 'bonus': [3]},
         'R': {-1: 50, 3: 'Q', 'free_bonus': [3]},
-        'S': {-1: 30},
+        'S': {-1: 20},
         'T': {-1: 20},
         'U': {-1: 40, 3: 'U', 'free_bonus': [3]},
         'V': {-1: 50, 2: 90, 3:130 ,'bonus': [3,2]},
         'W': {-1: 20},
-        'X': {-1: 90},
-        'Y': {-1: 10},
-        'Z': {-1: 50},
+        'X': {-1: 17},
+        'Y': {-1: 20},
+        'Z': {-1: 21},
 
     }
 
@@ -43,6 +44,12 @@ def checkout(skus):
 
     total = 0
     counters = Counter(skus)
+
+
+    for comb in Combination("STXYZ", 3):
+        print(comb)
+
+
 
     for key, val in counters.items():
         if key not in product:
@@ -75,6 +82,7 @@ def checkout(skus):
 
 
     return total
+
 
 
 
