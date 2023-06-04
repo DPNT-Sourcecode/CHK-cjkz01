@@ -10,7 +10,7 @@ def checkout(skus):
         'B': {-1: 30, 2:45},
         'C': {-1: 20},
         'D': {-1: 15},
-        'E': {-1: 40, 2:'B', 'bonus': [2]},
+        'E': {-1: 40, 2:'B', 'free_bonus': [2]},
     }
 
     total = 0
@@ -21,15 +21,14 @@ def checkout(skus):
             if 'bonus' in product[key]:
                 rem = 0
                 for bonus in product[key]['bonus']:
-                    if product[key][bonus] in product:
-                        total += product[ product[key][bonus] ][-1]
-                    else:
-                        print(product[key][bonus], "result")
-                        div = int(val / bonus)
-                        total += (product[key][bonus] * div)
-                        rem = val % bonus
-                        val = rem
+                    div = int(val / bonus)
+                    total += (product[key][bonus] * div)
+                    rem = val % bonus
+                    val = rem
                 total += (product[key][-1] * rem)
+
+                for bonus in product[key]['free_bonus']:
+                    total += product[product[key][bonus]][-1]
 
             else:
                 total += val * product[key][-1]
@@ -38,6 +37,7 @@ def checkout(skus):
             return -1
 
     return total
+
 
 
 
