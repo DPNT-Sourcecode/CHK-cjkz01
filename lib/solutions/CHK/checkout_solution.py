@@ -48,7 +48,7 @@ def checkout(skus):
         output = []
         for k in group:
             if k in counters:
-                output.append(k)
+                output += [k] * max(counters[k], 3)
             if len(output) == 3:
                 counters = counters - Counter(output)
                 total += 45
@@ -90,4 +90,5 @@ def checkout(skus):
             total += val * product[key][-1]
 
     return total
+
 
