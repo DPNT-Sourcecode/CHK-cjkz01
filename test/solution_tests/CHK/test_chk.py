@@ -28,3 +28,8 @@ class TestSum():
         assert checkout_solution.checkout("FFFFFF") == 40
         assert checkout_solution.checkout("FFFFFF") == 40
 
+    def test_six(self):
+        assert checkout_solution.checkout("UUU") == 120
+
+
+
