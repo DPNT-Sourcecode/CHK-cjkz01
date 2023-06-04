@@ -47,7 +47,7 @@ def checkout(skus):
 
 
     for comb in combinations("STXYZ", 3):
-        print("#####comb$$$$$$")
+        print(comb)
 
 
 
