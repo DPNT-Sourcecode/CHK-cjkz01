@@ -7,7 +7,7 @@ def checkout(skus):
     # raise NotImplementedError()
     product = {
         'A': {-1: 50, 3:130,5: 200, 'bonus': [5, 3]},
-        'B': {-1: 30, 2:45},
+        'B': {-1: 30, 2:45, 'bonus': [2]},
         'C': {-1: 20},
         'D': {-1: 15},
         'E': {-1: 40, 2:'B', 'free_bonus': [2]},
@@ -41,6 +41,7 @@ def checkout(skus):
             return -1
 
     return total
+
 
 
 
