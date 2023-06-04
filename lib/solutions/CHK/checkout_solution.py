@@ -28,8 +28,8 @@ def checkout(skus):
             return -1
 
         if 'free_bonus' in product[key]:
-            # if key == 'F' and val < 3:
-            #     continue
+            if key == 'F' and val <= 3:
+                continue
             for bonus in product[key]['free_bonus']:
                 div = int(val / bonus)
                 if product[key][bonus] in counters:
@@ -50,6 +50,7 @@ def checkout(skus):
 
 
     return total
+
 
 
 
