@@ -40,7 +40,7 @@ def checkout(skus):
                 for bonus in product[key]['free_bonus']:
                     div = int(val / bonus)
                     if product[key][bonus] in counters:
-                        total -= product.get( product[key][bonus][div] , product[product[key][bonus]][-1] * div)
+                        total -= product[product[key][bonus]].get( div , product[product[key][bonus]][-1] * div)
 
 
 
@@ -48,6 +48,7 @@ def checkout(skus):
             return -1
 
     return total
+
 
 
 
