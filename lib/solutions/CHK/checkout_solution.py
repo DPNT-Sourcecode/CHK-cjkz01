@@ -32,13 +32,14 @@ def checkout(skus):
 
             if 'free_bonus' in product[key]:
                 for bonus in product[key]['free_bonus']:
-                    if product[key][bonus] in counters:
+                    if val == bonus and product[key][bonus] in counters:
                         total -= product[product[key][bonus]][-1]
 
         else:
             return -1
 
     return total
+
 
 
 
