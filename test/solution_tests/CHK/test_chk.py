@@ -21,4 +21,3 @@ class TestSum():
     def test_four(self):
         assert checkout_solution.checkout("ABCDEABCDE") == 280
         assert checkout_solution.checkout("CCADDEEBBA") == 280
-
