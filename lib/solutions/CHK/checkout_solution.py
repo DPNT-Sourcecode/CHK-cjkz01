@@ -10,7 +10,7 @@ def checkout(skus):
         'B': {-1: 30, 2:45},
         'C': {-1: 20},
         'D': {-1: 15},
-        'E': {-1: 15, 2:'B'},
+        'E': {-1: 40, 2:'B', 'bonus': [2]},
     }
 
     total = 0
@@ -38,7 +38,6 @@ def checkout(skus):
             return -1
 
     return total
-
 
 
 
