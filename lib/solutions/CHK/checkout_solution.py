@@ -44,10 +44,3 @@ def checkout(skus):
 
 
 
-
-
-
-
-
-
-

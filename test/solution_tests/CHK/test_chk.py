@@ -20,4 +20,3 @@ class TestSum():
     #
     # def test_three(self):
     #     assert sum_solution.compute(2, 3) > 3
-
