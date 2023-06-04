@@ -23,4 +23,9 @@ class TestSum():
         assert checkout_solution.checkout("CCADDEEBBA") == 280
 
 
+    def test_five(self):
+        assert checkout_solution.checkout("FFFF") == 30
+        assert checkout_solution.checkout("FFFFFF") == 40
+        assert checkout_solution.checkout("FFFFFF") == 40
+
 
